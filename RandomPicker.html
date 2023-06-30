@@ -5,20 +5,23 @@
 
 
 <body>
-    <input id="txtIngresado" type="text" onkeydown="onkeydownNombres(event.key)"/>
+    <input id="txtIngresado" type="text" oninput="letras(this.value)" />
     <br>
+    <label <span id="listadoDeNombres"> Hola</span>></label>
+   
   
     
 </body>
 
 <script>
     let nombresIngresados = "";
-    let arregloDeNombres = [];
+    let arregloDeNombres = "";
 
-    function onkeydownNombres (letraRecibida) {
+    function letras (letraRecibida) {
         if (letraRecibida !== ','){
             nombresIngresados = document.getElementById("txtIngresado").value;
-            
+            document.getElementById("listadoDeNombres").innerHTML = nombresIngresados;
+            arregloDeNombres = nombresIngresados;
         }else{
             arregloDeNombres = nombresIngresados.split(",");
             console.log(arregloDeNombres);
