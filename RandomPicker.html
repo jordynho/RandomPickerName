@@ -5,30 +5,42 @@
 
 
 <body>
-    <input id="txtIngresado" type="text" oninput="letras(this.value)" />
+    <input id="txtIngresado" type="text" oninput="letras()" />
     <br>
-    <label <span id="listadoDeNombres"> Hola</span>></label>
    
+    <ul id="listadoDeNombres"></ul>
   
     
 </body>
 
 <script>
     let nombresIngresados = "";
-    let arregloDeNombres = "";
+    let arregloDeNombres;
+    let listado;
 
-    function letras (letraRecibida) {
-        if (letraRecibida !== ','){
-            nombresIngresados = document.getElementById("txtIngresado").value;
-            document.getElementById("listadoDeNombres").innerHTML = nombresIngresados;
-            arregloDeNombres = nombresIngresados;
-        }else{
-            arregloDeNombres = nombresIngresados.split(",");
-            console.log(arregloDeNombres);
+    function letras () {
+        
+        
+            nombresIngresados = document.getElementById("txtIngresado").value;        
+            arregloDeNombres = nombresIngresados.split(',');
+
+            listado = document.getElementById("listadoDeNombres");
+            listado.innerHTML = "";
+            for (i = 0; i<arregloDeNombres.length; ++i){
+                let newLi = document.createElement('li');
+                newLi.innerText = arregloDeNombres[i];
+                listado.appendChild(newLi);
+            }
+
+
+            //document.getElementById("listadoDeNombres").innerHTML = arregloDeNombres;
+            //Elegir el random
+            // mostrar el random
+            //resetear el input
 
 
 
-        }
+        
     }
 
 
