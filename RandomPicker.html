@@ -7,8 +7,11 @@
 <body>
     <input id="txtIngresado" type="text" oninput="letras()" />
     <br>
-   
     <ul id="listadoDeNombres"></ul>
+    <br>
+    <button id="seleccionNombre" onclick="onclickButton()">Choose</button>
+    <br>
+    <label><span id="nombreSeleccionado"> </span></label>
   
     
 </body>
@@ -17,6 +20,7 @@
     let nombresIngresados = "";
     let arregloDeNombres;
     let listado;
+    let nombreElegido;
 
     function letras () {
         
@@ -31,9 +35,8 @@
                 newLi.innerText = arregloDeNombres[i];
                 listado.appendChild(newLi);
             }
-
-
-            //document.getElementById("listadoDeNombres").innerHTML = arregloDeNombres;
+            
+           //document.getElementById("listadoDeNombres").innerHTML = arregloDeNombres;
             //Elegir el random
             // mostrar el random
             //resetear el input
@@ -41,6 +44,13 @@
 
 
         
+    }
+
+    function onclickButton(){
+            let nombreElegido = Math.floor(Math.random() * arregloDeNombres.length);
+            document.getElementById("nombreSeleccionado").innerHTML = arregloDeNombres[nombreElegido];
+            
+
     }
 
 
