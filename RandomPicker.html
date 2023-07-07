@@ -1,61 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-</head>
+  <head> </head>
 
-
-<body>
+  <body>
     <input id="txtIngresado" type="text" oninput="letras()" />
-    <br>
+    <br />
     <ul id="listadoDeNombres"></ul>
-    <br>
+    <br />
     <button id="seleccionNombre" onclick="onclickButton()">Choose</button>
-    <br>
+    <br />
     <label><span id="nombreSeleccionado"> </span></label>
-  
-    
-</body>
+  </body>
 
-<script>
+  <script>
     let nombresIngresados = "";
     let arregloDeNombres;
     let listado;
     let nombreElegido;
 
-    function letras () {
-        
-        
-            nombresIngresados = document.getElementById("txtIngresado").value;        
-            arregloDeNombres = nombresIngresados.split(',');
+    function letras() {
+      nombresIngresados = document.getElementById("txtIngresado").value;
+      arregloDeNombres = nombresIngresados.split(",");
 
-            listado = document.getElementById("listadoDeNombres");
-            listado.innerHTML = "";
-            for (i = 0; i<arregloDeNombres.length; ++i){
-                let newLi = document.createElement('li');
-                newLi.innerText = arregloDeNombres[i];
-                listado.appendChild(newLi);
-            }
-            
-           //document.getElementById("listadoDeNombres").innerHTML = arregloDeNombres;
-            //Elegir el random
-            // mostrar el random
-            //resetear el input
+      listado = document.getElementById("listadoDeNombres");
+      listado.innerHTML = "";
+      for (i = 0; i < arregloDeNombres.length; ++i) {
+        let newLi = document.createElement("li");
+        newLi.innerText = arregloDeNombres[i];
+        listado.appendChild(newLi);
+      }
 
-
-
-        
+      
+      //resetear el input
     }
 
-    function onclickButton(){
-            let nombreElegido = Math.floor(Math.random() * arregloDeNombres.length);
-            document.getElementById("nombreSeleccionado").innerHTML = arregloDeNombres[nombreElegido];
-            
-
+    function onclickButton() {
+      let nombreElegido = Math.floor(Math.random() * arregloDeNombres.length);
+      document.getElementById("nombreSeleccionado").innerHTML =
+        arregloDeNombres[nombreElegido];
     }
-
-
-</script>
-
-
-
+  </script>
 </html>
